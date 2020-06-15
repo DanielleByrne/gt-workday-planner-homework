@@ -1,49 +1,63 @@
 $(document).ready(function () {
-  // variables
-  var timeRows = $("<div>").addClass("row time-block");
-  var timesCol = $("<div>").addClass("col-1 hour");
-  var userNotesCol = $("<input>").addClass("col-10 textarea");
-  var saveButtonCol = $("<div>").addClass("col-1");
-  var saveBtn = $("<button>").addClass("saveBtn fas fa-lock");
-//   var workdayHours = hours[hoursArrayIndex];
 
+// var currentDate = $("#currentDay")
+var allTimeSlots = $(".timeSlot");
+console.log(allTimeSlots);
+var currentDate = moment().format("MMM Do YY");
+console.log(currentDate);
 
-  var hours = [
-    "9am",
-    "10am",
-    "11am",
-    "12pm",
-    "1pm",
-    "2pm",
-    "3pm",
-    "4pm",
-    "5pm",
-  ];
-//   var hoursArrayIndex = 0;
+$("#currentDay").text(currentDate);
+var currentHour= moment().format("H");
+console.log(currentHour);
 
-
-  // functon not appending properly
-  function layout() {
-    for (var i = 0; i < hours.length; i++) {
-             $(".container").append(timeRows);
-             $(timeRows).append(timesCol);
-             $(timesCol).text(hours[i]);
-             $(timeRows).append(userNotesCol);
-             $(timeRows).append(saveButtonCol);
-             $(saveButtonCol).append(saveBtn);
-             
-             
-             
+allTimeSlots.each(function(){
+  var loopTime=($(this).data("time"));
+    console.log($(this).data("time"));
+    if(loopTime < currentHour){
+      $(this).addClass("past")
     }
-  }
-  layout();
-  
+    else if(loopTime > currentHour){
+      $(this).addClass("future")
+    }
+    else {
+      $(this).addClass("present")
 
-  //function definitions
+    }
+})
 
-  //function calls
+//if current time is 
+  // array of hours
+//   var hours = [
+//     "9am",
+//     "10am",
+//     "11am",
+//     "12pm",
+//     "1pm",
+//     "2pm",
+//     "3pm",
+//     "4pm",
+//     "5pm",
+//   ];
 
-  // event listeners
+  // functon to create the elements on the page
+//   function layout() {
+//     for (var i = 0; i < hours.length; i++) {
+//       var timeRows = $("<div>").addClass("row time-block");
+//       var timesCol = $("<div>").addClass("col-1 hour");
+//       var userNotesCol = $("<input>").addClass("col-10 textarea");
+//       var saveButtonCol = $("<div>").addClass("col-1");
+//       var saveBtn = $("<button>").addClass("saveBtn fas fa-lock");
+//       $(".container").append(timeRows);
+//       $(timeRows).append(timesCol);
+//       $(timesCol).text(hours[i]);
+//       $(timeRows).append(userNotesCol);
+//       $(timeRows).append(saveButtonCol);
+//       $(saveButtonCol).append(saveBtn);
+//     }
+//   }
+//   layout();
+
+
 });
 
 //  PSEUDOCODE
@@ -64,7 +78,6 @@ $(document).ready(function () {
 // THEN the saved events persist
 // ```
 //Things I need to add :
-// rows and columns for the times 9:00am to 5:00 pm
 // add the current day and time to the top of the page
 // color-code the timeblocks  for the hours of the day
 // create save buttons
