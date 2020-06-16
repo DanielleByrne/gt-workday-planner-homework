@@ -20,8 +20,8 @@ Clone the repository from GitHub and open the index.html file in a browser windo
 
 ## Usage 
 
-This HTML file uses Semantic HTML elements to increase accessibility of the site while maintaining the appearance. 
-![DayPlanner]()
+
+![DayPlanner](assets/51957BB8-4656-4DC4-ADE5-FED52A4DD815_1_105_c.jpeg)
 
 
 
