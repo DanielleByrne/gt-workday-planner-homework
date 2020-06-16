@@ -25,10 +25,10 @@ $(document).ready(function () {
   //   //listening for button click on the save button .saveBtn
   var textEl = $("#input15").val();
 
-  var rows = $(".row").each(function (index, value) {
+  var rows = $(".row").each(function () {
     $(".saveBtn").on("click", function () {
       var textInput = $(".textarea").val();
-      console.log(textInput);
+      console.log(textInput)
     });
   });
 
